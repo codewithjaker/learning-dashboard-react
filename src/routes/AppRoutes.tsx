@@ -12,6 +12,8 @@ import CategoriesList from '../pages/categories/CategoriesList';
 import CoursesList from '../pages/courses/CoursesList';
 import CourseDetails from '../pages/courses/CourseDetails';
 import ManageSyllabus from '../pages/courses/ManageSyllabus';
+import EnrollmentsList from '../pages/enrollments/EnrollmentsList';
+import EnrollmentDetails from '../pages/enrollments/EnrollmentDetails';
 
 export default function AppRoutes() {
   return (
@@ -31,6 +33,8 @@ export default function AppRoutes() {
           <Route path="/courses" element={<CoursesList />} />
           <Route path="/courses/:id" element={<CourseDetails />} />
           <Route path="/courses/:id/syllabus" element={<ManageSyllabus />} />
+          <Route path="/enrollments" element={<EnrollmentsList />} />
+          <Route path="/enrollments/:id" element={<EnrollmentDetails />} />
         </Route>
       </Route>
     </Routes>

@@ -31,6 +31,9 @@ export default function CoursesList() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState<any>(null);
 
+  console.log("Courses length:", courses.length);
+  console.log("Courses data:", courses);
+
   const loadCourses = useCallback(() => {
     dispatch(fetchCourses(queryParams));
   }, [dispatch, queryParams]);
@@ -67,10 +70,10 @@ export default function CoursesList() {
   const handleCreate = async (data: CreateCourseRequest) => {
     try {
       await dispatch(createCourse(data)).unwrap();
-      toast({ title: 'Success', description: 'Course created successfully' });
+      //   toast({ title: 'Success', description: 'Course created successfully' });
       setFormOpen(false);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -78,11 +81,11 @@ export default function CoursesList() {
     if (!selectedCourse) return;
     try {
       await dispatch(updateCourse({ id: selectedCourse.id, data })).unwrap();
-      toast({ title: 'Success', description: 'Course updated successfully' });
+      //   toast({ title: 'Success', description: 'Course updated successfully' });
       setFormOpen(false);
       setSelectedCourse(null);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -90,20 +93,20 @@ export default function CoursesList() {
     if (!courseToDelete) return;
     try {
       await dispatch(deleteCourse(courseToDelete.id)).unwrap();
-      toast({ title: 'Success', description: 'Course deleted successfully' });
+      //   toast({ title: 'Success', description: 'Course deleted successfully' });
       setDeleteDialogOpen(false);
       setCourseToDelete(null);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
   const handlePublish = async (course: any) => {
     try {
       await dispatch(publishCourse(course.id)).unwrap();
-      toast({ title: 'Success', description: 'Course published successfully' });
+      //   toast({ title: 'Success', description: 'Course published successfully' });
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 

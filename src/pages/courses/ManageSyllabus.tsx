@@ -103,18 +103,18 @@ export default function ManageSyllabus() {
           data: sectionForm,
           courseId,
         })).unwrap();
-        toast({ title: 'Success', description: 'Section updated' });
+        // toast({ title: 'Success', description: 'Section updated' });
       } else {
         await dispatch(createSection({
           courseId,
           title: sectionForm.title,
           orderIndex: sectionForm.orderIndex,
         })).unwrap();
-        toast({ title: 'Success', description: 'Section created' });
+        // toast({ title: 'Success', description: 'Section created' });
       }
       setSectionDialogOpen(false);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+    //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -127,11 +127,11 @@ export default function ManageSyllabus() {
     if (!sectionToDelete) return;
     try {
       await dispatch(deleteSection(sectionToDelete)).unwrap();
-      toast({ title: 'Success', description: 'Section deleted' });
+    //   toast({ title: 'Success', description: 'Section deleted' });
       setDeleteDialogOpen(false);
       setSectionToDelete(null);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+    //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -180,14 +180,14 @@ export default function ManageSyllabus() {
           data,
           sectionId: selectedSectionId,
         })).unwrap();
-        toast({ title: 'Success', description: 'Item updated' });
+        // toast({ title: 'Success', description: 'Item updated' });
       } else {
         await dispatch(createItem(data)).unwrap();
-        toast({ title: 'Success', description: 'Item created' });
+        // toast({ title: 'Success', description: 'Item created' });
       }
       setItemDialogOpen(false);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+    //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -200,11 +200,11 @@ export default function ManageSyllabus() {
     if (!itemToDelete) return;
     try {
       await dispatch(deleteItem(itemToDelete)).unwrap();
-      toast({ title: 'Success', description: 'Item deleted' });
+    //   toast({ title: 'Success', description: 'Item deleted' });
       setDeleteDialogOpen(false);
       setItemToDelete(null);
     } catch (error: any) {
-      toast({ title: 'Error', description: error, variant: 'destructive' });
+    //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
