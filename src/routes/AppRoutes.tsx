@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from '../components/layout/MainLayout';
 import { ProtectedRoute } from '../components/common/ProtectedRoute';
 import PublicRoute from './PublicRoute';
@@ -24,7 +24,14 @@ import CouponDetails from '../pages/coupons/CouponDetails';
 import CouponsList from '../pages/coupons/CouponsList';
 import ReviewsList from '../pages/reviews/ReviewsList';
 import ReviewDetails from '../pages/reviews/ReviewDetails';
-
+import ReportsLayout from '../pages/reports/ReportsLayout';
+import SalesReport from '../pages/reports/SalesReport';
+import UserReport from '../pages/reports/UserReport';
+import CourseReport from '../pages/reports/CourseReport';
+import EnrollmentReport from '../pages/reports/EnrollmentReport';
+import PaymentReport from '../pages/reports/PaymentReport';
+import PaymentMethodsReport from '../pages/reports/PaymentMethodsReport';
+import InstructorEarningsReport from '../pages/reports/InstructorEarningsReport';
 
 
 export default function AppRoutes() {
@@ -58,6 +65,19 @@ export default function AppRoutes() {
           <Route path="/reviews" element={<ReviewsList />} />
           <Route path="/reviews/:id" element={<ReviewDetails />} />
         </Route>
+      </Route>
+
+
+
+      <Route path="reports" element={<ReportsLayout />}>
+        <Route index element={<Navigate to="sales" replace />} />
+        <Route path="sales" element={<SalesReport />} />
+        <Route path="users" element={<UserReport />} />
+        <Route path="courses" element={<CourseReport />} />
+        <Route path="enrollments" element={<EnrollmentReport />} />
+        <Route path="payments" element={<PaymentReport />} />
+        <Route path="payment-methods" element={<PaymentMethodsReport />} />
+        <Route path="instructor-earnings" element={<InstructorEarningsReport />} />
       </Route>
     </Routes>
   );

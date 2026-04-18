@@ -11,6 +11,7 @@ import payoutReducer from './slices/payoutSlice';
 import couponReducer from './slices/couponSlice';
 import reviewReducer from './slices/reviewSlice';
 import dashboardReducer from './slices/dashboardSlice';
+import reportReducer from './slices/reportSlice';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   coupons: couponReducer,
   reviews: reviewReducer,
   dashboard: dashboardReducer,
+  reports: reportReducer,
 });
 
 export default rootReducer;
