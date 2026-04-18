@@ -5,6 +5,12 @@ import categoryReducer from './slices/categorySlice';
 import courseReducer from './slices/courseSlice';
 import syllabusReducer from './slices/syllabusSlice';
 import enrollmentReducer from './slices/enrollmentSlice';
+import invoiceReducer from './slices/invoiceSlice';
+import paymentReducer from './slices/paymentSlice';
+import payoutReducer from './slices/payoutSlice';
+import couponReducer from './slices/couponSlice';
+import reviewReducer from './slices/reviewSlice';
+import dashboardReducer from './slices/dashboardSlice';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -13,6 +19,12 @@ const rootReducer = combineReducers({
   courses: courseReducer,
   syllabus: syllabusReducer,
   enrollments: enrollmentReducer,
+  invoices: invoiceReducer,
+  payments: paymentReducer,
+  payouts: payoutReducer,
+  coupons: couponReducer,
+  reviews: reviewReducer,
+  dashboard: dashboardReducer,
 });
 
 export default rootReducer;

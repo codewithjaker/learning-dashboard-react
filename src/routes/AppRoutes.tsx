@@ -14,6 +14,18 @@ import CourseDetails from '../pages/courses/CourseDetails';
 import ManageSyllabus from '../pages/courses/ManageSyllabus';
 import EnrollmentsList from '../pages/enrollments/EnrollmentsList';
 import EnrollmentDetails from '../pages/enrollments/EnrollmentDetails';
+import InvoicesList from '../pages/invoices/InvoicesList';
+import InvoiceDetails from '../pages/invoices/InvoiceDetails';
+import PaymentsList from '../pages/payments/PaymentsList';
+import PaymentDetails from '../pages/payments/PaymentDetails';
+import PayoutDetails from '../pages/payouts/PayoutDetails';
+import PayoutsList from '../pages/payouts/PayoutsList';
+import CouponDetails from '../pages/coupons/CouponDetails';
+import CouponsList from '../pages/coupons/CouponsList';
+import ReviewsList from '../pages/reviews/ReviewsList';
+import ReviewDetails from '../pages/reviews/ReviewDetails';
+
+
 
 export default function AppRoutes() {
   return (
@@ -23,7 +35,7 @@ export default function AppRoutes() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
       </Route>
-      
+
       <Route element={<ProtectedRoute />}>
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -35,6 +47,16 @@ export default function AppRoutes() {
           <Route path="/courses/:id/syllabus" element={<ManageSyllabus />} />
           <Route path="/enrollments" element={<EnrollmentsList />} />
           <Route path="/enrollments/:id" element={<EnrollmentDetails />} />
+          <Route path="/invoices" element={<InvoicesList />} />
+          <Route path="/invoices/:id" element={<InvoiceDetails />} />
+          <Route path="/payments" element={<PaymentsList />} />
+          <Route path="/payments/:id" element={<PaymentDetails />} />
+          <Route path="/payouts" element={<PayoutsList />} />
+          <Route path="/payouts/:id" element={<PayoutDetails />} />
+          <Route path="/coupons" element={<CouponsList />} />
+          <Route path="/coupons/:id" element={<CouponDetails />} />
+          <Route path="/reviews" element={<ReviewsList />} />
+          <Route path="/reviews/:id" element={<ReviewDetails />} />
         </Route>
       </Route>
     </Routes>
