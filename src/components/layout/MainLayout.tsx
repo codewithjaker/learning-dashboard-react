@@ -7,11 +7,16 @@ export function MainLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-background">
+      {/* Sidebar - background and text colors are handled inside Sidebar component */}
       <Sidebar open={sidebarOpen} onOpenChange={setSidebarOpen} />
+
+      {/* Main content area */}
       <div className="flex flex-1 flex-col overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(true)} />
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-6">
+
+        {/* Main scrollable content */}
+        <main className="flex-1 overflow-y-auto bg-background p-6 dark:bg-background">
           <Outlet />
         </main>
       </div>

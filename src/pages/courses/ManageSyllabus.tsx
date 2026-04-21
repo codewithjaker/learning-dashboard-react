@@ -25,6 +25,7 @@ import {
 } from '../../store/slices/syllabusSlice';
 import { useToast } from '../../components/ui/use-toast';
 import { ConfirmationDialog } from '../../components/common/ConfirmationDialog';
+import { Badge } from '@/components/ui/badge';
 
 export default function ManageSyllabus() {
   const { id } = useParams<{ id: string }>();

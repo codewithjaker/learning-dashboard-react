@@ -54,12 +54,12 @@ export function Sidebar({ open, onOpenChange }: SidebarProps) {
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-50 w-64 bg-white border-r shadow-lg transition-transform duration-300 lg:relative lg:translate-x-0',
+          'fixed inset-y-0 left-0 z-50 w-64 bg-background border-r shadow-lg transition-transform duration-300 lg:relative lg:translate-x-0',
           open ? 'translate-x-0' : '-translate-x-full'
         )}
       >
         <div className="flex h-16 items-center justify-between px-4 border-b">
-          <h1 className="text-xl font-bold">LMS Admin</h1>
+          <h1 className="text-xl font-bold text-foreground">LMS Admin</h1>
           <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => onOpenChange(false)}>
             <X className="h-5 w-5" />
           </Button>
@@ -76,7 +76,7 @@ export function Sidebar({ open, onOpenChange }: SidebarProps) {
                     'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                     isActive
                       ? 'bg-primary text-primary-foreground'
-                      : 'hover:bg-muted'
+                      : 'text-foreground hover:bg-accent hover:text-accent-foreground'
                   )
                 }
                 onClick={() => onOpenChange(false)}
@@ -90,7 +90,7 @@ export function Sidebar({ open, onOpenChange }: SidebarProps) {
           <div className="px-2">
             <Button
               variant="ghost"
-              className="w-full justify-start gap-3 text-red-600 hover:bg-red-50 hover:text-red-700"
+              className="w-full justify-start gap-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950 hover:text-red-700 dark:hover:text-red-300"
               onClick={() => logout()}
             >
               <LogOut className="h-5 w-5" />

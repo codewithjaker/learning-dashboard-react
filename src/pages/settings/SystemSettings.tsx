@@ -31,7 +31,7 @@ type SystemFormValues = z.infer<typeof systemSchema>;
 
 const timezones = ['UTC', 'America/New_York', 'Europe/London', 'Asia/Dhaka', 'Asia/Tokyo'];
 const dateFormats = ['YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY'];
-const currencies = ['USD', 'EUR', 'GBP', 'BDT', 'INR'];
+const currencies = ['USD', 'EUR', 'GBP', 'BDT', 'INR','RUB','CNY','JPY'];
 
 export default function SystemSettings() {
   const dispatch = useDispatch();
