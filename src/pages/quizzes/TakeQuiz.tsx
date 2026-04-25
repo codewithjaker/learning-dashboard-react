@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {type RootState } from '../../store';
-import { fetchQuiz, startQuiz, submitQuiz } from '../../store/slices/quizSlice';
+import { type RootState } from '../../store';
+import { clearCurrentQuiz, fetchQuiz, startQuiz, submitQuiz } from '../../store/slices/quizSlice';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { RadioGroup, RadioGroupItem } from '../../components/ui/radio-group';
@@ -68,6 +68,19 @@ export default function TakeQuiz() {
     setAnswers(prev => ({ ...prev, [questionId]: { optionId, text } }));
   };
 
+  // const handleSubmit = async () => {
+  //   if (!currentAttempt) return;
+  //   const answerList = Object.entries(answers).map(([qId, ans]) => ({
+  //     questionId: parseInt(qId),
+  //     selectedOptionId: ans.optionId,
+  //     textAnswer: ans.text,
+  //   }));
+  //   await dispatch(submitQuiz({ attemptId: currentAttempt.id, data: { answers: answerList } })).unwrap();
+  //   // toast({ title: 'Quiz submitted', description: 'Your answers have been recorded.' });
+  //   navigate(`/quiz/result/${currentAttempt.id}`);
+  // };
+
+  // Inside TakeQuiz.tsx, after successful submit:
   const handleSubmit = async () => {
     if (!currentAttempt) return;
     const answerList = Object.entries(answers).map(([qId, ans]) => ({
@@ -75,9 +88,15 @@ export default function TakeQuiz() {
       selectedOptionId: ans.optionId,
       textAnswer: ans.text,
     }));
-    await dispatch(submitQuiz({ attemptId: currentAttempt.id, data: { answers: answerList } })).unwrap();
-    // toast({ title: 'Quiz submitted', description: 'Your answers have been recorded.' });
-    navigate(`/quiz/result/${currentAttempt.id}`);
+    try {
+      const result = await dispatch(submitQuiz({ attemptId: currentAttempt.id, data: { answers: answerList } })).unwrap();
+      // toast({ title: 'Quiz submitted', description: 'Your answers have been recorded.' });
+      // Clear the current attempt from Redux to force a fresh start next time
+      dispatch(clearCurrentQuiz());
+      navigate(`/quiz/result/${result.attemptId}`);
+    } catch (error) {
+      // toast({ title: 'Error', description: 'Failed to submit quiz', variant: 'destructive' });
+    }
   };
 
   if (isLoading || !currentQuiz || !currentAttempt) {
