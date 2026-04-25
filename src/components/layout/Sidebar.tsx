@@ -9,9 +9,9 @@ import {
   Ticket,
   Star,
   DollarSign,
+  TrendingUp,
   Settings,
   LogOut,
-  Menu,
   X,
 } from 'lucide-react';
 import { Button } from '../ui/button';
@@ -19,7 +19,6 @@ import { ScrollArea } from '../ui/scroll-area';
 import { Separator } from '../ui/separator';
 import { cn } from '../../lib/utils';
 import { useAuth } from '../../hooks/useAuth';
-import { useState } from 'react';
 
 interface SidebarProps {
   open: boolean;
@@ -32,6 +31,8 @@ const navItems = [
   { path: '/courses', label: 'Courses', icon: BookOpen },
   { path: '/categories', label: 'Categories', icon: FolderTree },
   { path: '/enrollments', label: 'Enrollments', icon: ShoppingCart },
+  // { path: '/progress', label: 'Progress', icon: TrendingUp },
+  { path: '/my-progress', label: 'My Progress', icon: TrendingUp }, // <-- NEW
   { path: '/payments', label: 'Payments', icon: CreditCard },
   { path: '/invoices', label: 'Invoices', icon: CreditCard },
   { path: '/coupons', label: 'Coupons', icon: Ticket },
@@ -50,7 +51,7 @@ export function Sidebar({ open, onOpenChange }: SidebarProps) {
       {open && (
         <div className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={() => onOpenChange(false)} />
       )}
-      
+
       {/* Sidebar */}
       <aside
         className={cn(
@@ -64,7 +65,7 @@ export function Sidebar({ open, onOpenChange }: SidebarProps) {
             <X className="h-5 w-5" />
           </Button>
         </div>
-        
+
         <ScrollArea className="flex-1 py-4">
           <nav className="space-y-1 px-2">
             {navItems.map((item) => (

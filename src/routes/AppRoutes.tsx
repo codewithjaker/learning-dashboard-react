@@ -71,6 +71,16 @@ import NotFound from '../pages/errors/NotFound';
 import Forbidden from '@/pages/errors/Forbidden';
 import InternalError from '@/pages/errors/InternalError';
 
+
+import OverallProgress from '../pages/progress/OverallProgress';
+import CourseProgress from '../pages/progress/CourseProgress';
+
+
+import TakeQuiz from '../pages/quizzes/TakeQuiz';
+import QuizResult from '../pages/quizzes/QuizResult';
+import QuizManager from '../pages/quizzes/QuizManager';
+
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -116,6 +126,10 @@ export default function AppRoutes() {
           <Route path="/payouts" element={<PayoutsList />} />
           <Route path="/payouts/:id" element={<PayoutDetails />} />
 
+          {/* Progress */}
+          <Route path="my-progress" element={<OverallProgress />} />
+          <Route path="progress/:courseId" element={<CourseProgress />} />
+
           {/* Coupons */}
           <Route path="/coupons" element={<CouponsList />} />
           <Route path="/coupons/:id" element={<CouponDetails />} />
@@ -135,6 +149,10 @@ export default function AppRoutes() {
             <Route path="payment-methods" element={<PaymentMethodsReport />} />
             <Route path="instructor-earnings" element={<InstructorEarningsReport />} />
           </Route>
+
+          <Route path="quiz/take/:quizId" element={<TakeQuiz />} />
+          <Route path="quiz/result/:attemptId" element={<QuizResult />} />
+          <Route path="quiz/manage/:quizId" element={<QuizManager />} />
 
           {/* Settings (nested routes) */}
           <Route path="/settings" element={<SettingsLayout />}>

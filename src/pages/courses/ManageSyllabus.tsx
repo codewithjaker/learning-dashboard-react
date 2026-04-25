@@ -115,7 +115,7 @@ export default function ManageSyllabus() {
       }
       setSectionDialogOpen(false);
     } catch (error: any) {
-    //   toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -128,11 +128,11 @@ export default function ManageSyllabus() {
     if (!sectionToDelete) return;
     try {
       await dispatch(deleteSection(sectionToDelete)).unwrap();
-    //   toast({ title: 'Success', description: 'Section deleted' });
+      //   toast({ title: 'Success', description: 'Section deleted' });
       setDeleteDialogOpen(false);
       setSectionToDelete(null);
     } catch (error: any) {
-    //   toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -188,7 +188,7 @@ export default function ManageSyllabus() {
       }
       setItemDialogOpen(false);
     } catch (error: any) {
-    //   toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -201,11 +201,11 @@ export default function ManageSyllabus() {
     if (!itemToDelete) return;
     try {
       await dispatch(deleteItem(itemToDelete)).unwrap();
-    //   toast({ title: 'Success', description: 'Item deleted' });
+      //   toast({ title: 'Success', description: 'Item deleted' });
       setDeleteDialogOpen(false);
       setItemToDelete(null);
     } catch (error: any) {
-    //   toast({ title: 'Error', description: error, variant: 'destructive' });
+      //   toast({ title: 'Error', description: error, variant: 'destructive' });
     }
   };
 
@@ -223,6 +223,7 @@ export default function ManageSyllabus() {
   if (!currentCourse && !isLoading) {
     return <div className="text-center p-8">Course not found</div>;
   }
+
 
   return (
     <div className="container mx-auto p-6 space-y-6">
@@ -246,7 +247,7 @@ export default function ManageSyllabus() {
           <div className="space-y-4">
             {sections.map((section, idx) => (
               <div key={section.id} className="border rounded-lg">
-                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-t-lg">
+                <div className="flex items-center justify-between p-4 bg-muted/50 dark:bg-muted/20 rounded-t-lg">
                   <div className="flex items-center gap-2">
                     <Button
                       variant="ghost"
@@ -277,7 +278,7 @@ export default function ManageSyllabus() {
                 {expandedSections.has(section.id) && (
                   <div className="p-4 space-y-2">
                     {(items[section.id] || []).map((item, itemIdx) => (
-                      <div key={item.id} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                      <div key={item.id} className="flex items-center justify-between p-2 hover:bg-muted/50 rounded-lg transition-colors">
                         <div className="flex items-center gap-3">
                           {getItemIcon(item.type)}
                           <span className="text-sm">{itemIdx + 1}. {item.title}</span>

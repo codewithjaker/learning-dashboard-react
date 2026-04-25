@@ -13,6 +13,8 @@ import reviewReducer from './slices/reviewSlice';
 import dashboardReducer from './slices/dashboardSlice';
 import reportReducer from './slices/reportSlice';
 import settingsReducer from './slices/settingsSlice';
+import progressReducer from './slices/progressSlice';
+import quizReducer from './slices/quizSlice';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
   dashboard: dashboardReducer,
   reports: reportReducer,
   settings: settingsReducer,
+  progress: progressReducer,
+  quiz: quizReducer,
 });
 
 export default rootReducer;

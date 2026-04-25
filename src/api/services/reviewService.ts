@@ -7,7 +7,8 @@ import type{
 
 export const reviewService = {
   getReviews: (params: ReviewQueryParams) =>
-    apiClient.get<ReviewListResponse>('/reviews', { params }).then((res) => res.data),
+    // apiClient.get<ReviewListResponse>('/reviews', { params }).then((res) => res.data),
+    apiClient.get<ReviewListResponse>('/reviews/course', { params }).then((res) => res.data),
 
   getReviewById: (id: number) =>
     apiClient.get<Review>(`/reviews/${id}`).then((res) => res.data),
